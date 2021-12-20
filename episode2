@@ -1,0 +1,25 @@
+import matplotlib.pyplot as plt
+import numpy as np
+inp = open("C:\\Users\\user\\Desktop\\dead_moroz\\frames.dat", 'r')
+data = inp.readlines()
+points = int(len(data))
+print(points)
+k = 0
+for i in range(points):
+    if (i % 2 == 0):
+        k = k + 1
+        X = data[i]
+        Y = data[i + 1]
+        x = X.split(" ")
+        y = Y.split(" ")
+        for i in range(int(len(x))):
+            x[i] = float(x[i])
+            y[i] = float(y[i])
+        ig, ax = plt.subplots()
+        ax.plot(x, y, marker='', linestyle='-', color='blue', linewidth=1)
+        plt.xlim([0, 15])
+        plt.ylim([-12, 12])
+        ax.grid()
+        ax.set_title("Кадр " + str(k))
+        
+        plt.show()
