@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+inp = open("C:\\Users\\user\\Desktop\\dead_moroz\\001.dat", 'r')
+data = inp.readlines()
+N = int(data[0])
+points = data[1:N]
+X = []
+Y = []
+for point in points:
+    x, y = (float(coord) for coord in point.split())
+    X.append(x)
+    Y.append(y)
+ig, ax = plt.subplots()
+ax.plot(X, Y, marker='o', linestyle='-', color='blue', linewidth=0)
+ax.set_title("Number of points: " + str(N))
+
+plt.show()
